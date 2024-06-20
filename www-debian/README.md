@@ -36,3 +36,14 @@ composer install
 - **Étape 6 :** Une fois les conteneurs Docker démarrés, accédez à `http://cp.demo/` dans votre navigateur pour voir l'application en cours d'exécution.
 
 
+### Commands
+
+```
+php -i
+php -i | grep 'Loaded Configuration File'
+php -i | grep 'upload_max_filesize'
+php -i | grep 'post_max_size'
+
+nginx -T | grep client_max_body_size
+
+```

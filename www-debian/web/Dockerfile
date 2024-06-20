@@ -33,6 +33,7 @@ RUN echo 'export PATH="$PATH:/root/.symfony5/bin"' >> ~/.bashrc
 
 RUN composer global require laravel/installer
 
+COPY ./conf/php-cli.ini /etc/php/8.2/cli/php.ini
 COPY ./conf/php.ini /etc/php/8.2/fpm/php.ini
 COPY ./conf/www.conf /etc/php/8.2/fpm/pool.d/www.conf
 
