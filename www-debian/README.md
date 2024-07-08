@@ -1,6 +1,6 @@
 # DOCKER - WWW
 
-- "1000:1000" correspond à l'UID et au GID de l'utilisateur sur votre système hôte. Vous pouvez remplacer ces valeurs par celles de votre utilisateur sur votre système hôte.
+- "1000:1000" corresponds to the UID and GID of the user on your host system. You can replace these values with those of your user on your host system.
 
 ```
 id -u
@@ -9,31 +9,31 @@ id -g
 
 ### Build
 
-- **Étape 1 :** Téléchargez les projets suivants :
-  - [cp-symfony](https://github.com/itd3vbox/project-cp-symfony)
-  - [cp-webpack](https://github.com/itd3vbox/project-cp-webpack)
+- **Step 1 :** Download the following projects:
+  - [project-manager-laravel](https://github.com/itd3vbox/project-manager-laravel)
+  - [project-manager-next](https://github.com/itd3vbox/project-manager-next)
 
-- **Étape 2 :** Modifiez le fichier `.env` et adaptez les variables suivantes :
-  - `CP_SYMFONY` et `CP_WEBPACK` pour qu'ils correspondent aux emplacements des projets précédents (utilisez des chemins absolus ou exécutez `pwd` pour obtenir le chemin actuel).
+- **Step 2 :** Modify the .env file and adjust the following variables:
+  - PM_LARAVEL and PM_NEXT to match the locations of the downloaded projects (use absolute paths or run pwd to get the current path).
 
-- **Étape 3 :** Ajoutez la ligne suivante à votre fichier `/etc/hosts` :
-
-```
-127.0.0.1   cp.demo
+- **Step 3 :** Add the following line to your /etc/hosts file:
 
 ```
+127.0.0.1   projectmanager.demo
 
-- **Étape 4 :** Installez Docker, puis exécutez la commande `make`.
+```
 
-- **Étape 5 :** Dans la partie "Containers" de Docker, sélectionnez le conteneur nommé 'www-web', sur l' onglet choisissez 'Exec'. Une fois lancé, exécutez les commandes suivantes :
+- **Step 4 :** Install Docker, then run the make command.
+
+- **Step 5 :** In the "Containers" section of Docker, select the container named 'www-web', then choose the 'Exec' tab. Once started, run the following commands:
 
 ```
 bash
-cd /var/www/cp-symfony/
+cd /var/www/project-manager-laravel/
 composer install
 ``` 
 
-- **Étape 6 :** Une fois les conteneurs Docker démarrés, accédez à `http://cp.demo/` dans votre navigateur pour voir l'application en cours d'exécution.
+- **Step 6 :** Once the Docker containers are running, go to http://projectmanager.demo/ in your browser to see the running application.
 
 
 ### Commands

@@ -23,7 +23,7 @@ services:
       - pm_www_net
     ports:
       - "3306:3306"
-
+      
   nginx:
     image: pm-www-nginx
     container_name: pm-www-nginx
@@ -31,7 +31,8 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ${PM_SYMFONY}:/var/www/project-manager-symfony:rw
+      - ${PM_LARAVEL}:/var/www/project-manager-laravel:rw
+      - ${IN_NEXT}:/var/www/project-manager-next
     networks:
       - pm_www_net
     restart: always
@@ -45,7 +46,8 @@ services:
     ports:
       - "9000:9000"
     volumes:
-      - ${PM_SYMFONY}:/var/www/project-manager-symfony
+      - ${PM_LARAVEL}:/var/www/project-manager-laravel
+      - ${IN_NEXT}:/var/www/project-manager-next
       - ${PM_AUTOMATES}:/automates
     networks:
       - pm_www_net
