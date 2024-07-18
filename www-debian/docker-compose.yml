@@ -30,9 +30,10 @@ services:
     build: ./nginx
     ports:
       - "80:80"
+      - "5173:5173"
     volumes:
       - ${PM_LARAVEL}:/var/www/project-manager-laravel:rw
-      - ${IN_NEXT}:/var/www/project-manager-next
+      - ${PM_NEXT}:/var/www/project-manager-next
     networks:
       - pm_www_net
     restart: always
@@ -47,7 +48,7 @@ services:
       - "9000:9000"
     volumes:
       - ${PM_LARAVEL}:/var/www/project-manager-laravel
-      - ${IN_NEXT}:/var/www/project-manager-next
+      - ${PM_NEXT}:/var/www/project-manager-next
       - ${PM_AUTOMATES}:/automates
     networks:
       - pm_www_net
