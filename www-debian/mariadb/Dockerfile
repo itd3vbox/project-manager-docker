@@ -1,14 +1,5 @@
 FROM debian:buster
 
-# Set root as the user for the following commands
-USER root
-
-# Create a group with GID 1000
-RUN groupadd -g 1000 www-group
-
-# Modify the user www-data to have UID 1000 and add to the group with GID 1000
-RUN usermod -u 1000 -g www-group www-data
-
 ARG DB_NAME
 ARG DB_TEST_NAME
 ARG DB_USER
