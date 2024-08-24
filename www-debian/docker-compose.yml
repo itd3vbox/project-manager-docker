@@ -16,7 +16,7 @@ services:
         DB_PASSWORD_ADMIN: ${DB_PASSWORD_ADMIN}
         DB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
     env_file: .env
-    restart: no
+    restart: on-failure
     volumes:
       - db:/var/lib/mysql/:rw
     networks:
@@ -36,7 +36,7 @@ services:
       - ${PM_NEXT}:/var/www/project-manager-next
     networks:
       - pm_www_net
-    restart: no
+    restart: on-failure
     env_file: .env
 
   web:
@@ -52,7 +52,7 @@ services:
       - ${PM_AUTOMATES}:/automates
     networks:
       - pm_www_net
-    restart: no
+    restart: on-failure
     env_file: .env
 
 volumes:

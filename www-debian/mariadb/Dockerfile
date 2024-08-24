@@ -28,6 +28,7 @@ RUN sed -i "s/\${DB_NAME}/${DB_NAME}/g" /db.sql && \
 
 EXPOSE 3306
 
+ENTRYPOINT ["./db-init.sh"]
+
 CMD ["/usr/bin/mysqld_safe"]
 
-ENTRYPOINT ["./db-init.sh"]
