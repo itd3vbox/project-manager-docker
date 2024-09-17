@@ -34,10 +34,13 @@ services:
     volumes:
       - ${PM_LARAVEL}:/var/www/project-manager-laravel:rw
       - ${PM_NEXT}:/var/www/project-manager-next
+      - phpmyadmin:/var/www/html/phpmyadmin
     networks:
       - pm_www_net
     restart: on-failure
     env_file: .env
+    # depends_on:
+    #   - web
 
   web:
     image: pm-www-web
@@ -50,6 +53,7 @@ services:
       - ${PM_LARAVEL}:/var/www/project-manager-laravel
       - ${PM_NEXT}:/var/www/project-manager-next
       - ${PM_AUTOMATES}:/automates
+      - phpmyadmin:/var/www/html/phpmyadmin
     networks:
       - pm_www_net
     restart: on-failure
@@ -60,6 +64,12 @@ volumes:
     driver: local
     driver_opts:
       device: ${PM_DB}
+      type: none
+      o: bind
+  phpmyadmin:
+    driver: local
+    driver_opts:
+      device: ${PM_PMA}
       type: none
       o: bind
 

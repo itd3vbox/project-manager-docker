@@ -26,9 +26,8 @@ RUN sed -i "s/\${DB_NAME}/${DB_NAME}/g" /db.sql && \
     sed -i "s/\${DB_PASSWORD_ADMIN}/${DB_PASSWORD_ADMIN}/g" /db.sql && \
     sed -i "s/\${DB_ROOT_PASSWORD}/${DB_ROOT_PASSWORD}/g" /db.sql
 
+RUN  ./db-init.sh
+
 EXPOSE 3306
 
-ENTRYPOINT ["./db-init.sh"]
-
-CMD ["/usr/bin/mysqld_safe"]
-
+CMD ["mysqld_safe"]
